@@ -1,23 +1,17 @@
 import globals from 'globals';
 import js from '@eslint/js';
 import pluginVue from 'eslint-plugin-vue';
-import stylistic from '@stylistic/eslint-plugin';
+import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 
 export default [
   js.configs.recommended,
   ...pluginVue.configs['flat/essential'],
-  stylistic.configs['recommended-flat'],
   {
-    files: [
-      '**/*.{js,mjs,cjs,vue}',
-    ],
+    files: ['**/*.{js,mjs,cjs,vue}'],
     languageOptions: {
       globals: {
         ...globals.browser,
       },
-    },
-    plugins: {
-      '@stylistic': stylistic,
     },
     rules: {
       'no-var': 'error',
@@ -34,14 +28,10 @@ export default [
       'default-case-last': 'error',
       'default-param-last': 'error',
       'eqeqeq': 'error',
-      // stylistic
-      '@stylistic/semi': ['error', 'always'],
     },
   },
   {
-    ignores: [
-      'dist',
-      '.vscode',
-    ],
+    ignores: ['dist', '.vscode'],
   },
+  eslintPluginPrettierRecommended,
 ];
