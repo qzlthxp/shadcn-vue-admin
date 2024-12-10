@@ -1,6 +1,7 @@
 import globals from 'globals';
 import js from '@eslint/js';
 import pluginVue from 'eslint-plugin-vue';
+import pluginImport from 'eslint-plugin-import';
 import eslintPluginPrettierRecommended from 'eslint-plugin-prettier/recommended';
 
 export default [
@@ -11,6 +12,21 @@ export default [
     languageOptions: {
       globals: {
         ...globals.browser,
+      },
+    },
+    plugins: {
+      import: pluginImport,
+      vue: pluginVue,
+    },
+    settings: {
+      'import/resolver': {
+        alias: {
+          map: [['@', './src']],
+          extensions: ['.js', '.jsx', '.ts', '.tsx', '.json', '.vue'],
+        },
+        node: {
+          moduleDirectory: ['node_modules', 'src'],
+        },
       },
     },
     rules: {
@@ -28,6 +44,10 @@ export default [
       'default-case-last': 'error',
       'default-param-last': 'error',
       'eqeqeq': 'error',
+      //import
+      'import/no-unresolved': 'error',
+      // vue
+      'vue/multi-word-component-names': 'off',
     },
   },
   {

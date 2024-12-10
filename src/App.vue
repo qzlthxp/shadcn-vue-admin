@@ -1,5 +1,8 @@
 <template>
-  <h1 className="text-3xl font-bold underline"> Hello world! </h1>
+  <div>
+    <ShadcnButton> Click me </ShadcnButton>
+    <ShadcnInput></ShadcnInput>
+  </div>
 </template>
 
 <script setup></script>
