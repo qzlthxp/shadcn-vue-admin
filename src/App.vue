@@ -1,8 +1,9 @@
 <template>
-  <div>
-    <ShadcnButton> Click me </ShadcnButton>
-    <ShadcnInput></ShadcnInput>
-  </div>
+  <BaseLayout>
+    <RouterView></RouterView>
+  </BaseLayout>
 </template>
 
-<script setup></script>
+<script setup>
+  import BaseLayout from './layouts/BaseLayout.vue';
+</script>
