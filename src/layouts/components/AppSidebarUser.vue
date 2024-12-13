@@ -48,7 +48,7 @@
             </DropdownMenuItem>
           </DropdownMenuGroup>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>
+          <DropdownMenuItem @click="handleLogout">
             <LogOut />
             退出登录
           </DropdownMenuItem>
@@ -76,9 +76,16 @@
   } from '@/components/ui/dropdown-menu';
   import { ChevronsUpDown, LogOut, Settings } from 'lucide-vue-next';
   import { computed } from 'vue';
+  import { useRouter } from 'vue-router';
   import { useUserStore } from '@/store/modules/user';
 
   const userStore = useUserStore();
+  const router = useRouter();
 
   const avatarFallback = computed(() => userStore.name.slice(-2).toUpperCase());
+
+  const handleLogout = () => {
+    userStore.logout();
+    router.push('/login');
+  };
 </script>

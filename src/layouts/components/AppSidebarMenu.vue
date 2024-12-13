@@ -2,7 +2,7 @@
   <SidebarGroup>
     <SidebarMenu>
       <AppSidebarMenuItem
-        v-for="(menu, index) in menus"
+        v-for="(menu, index) in computedMenus"
         :key="index"
         :item="menu"
         :path="[menu.path]"
@@ -16,7 +16,8 @@
   import { SidebarMenu, SidebarGroup } from '@/components/ui/sidebar';
   import AppSidebarMenuItem from './AppSidebarMenuItem.vue';
   import { useRouter } from 'vue-router';
-  import { ref, watch, provide } from 'vue';
+  import { ref, watch, provide, computed } from 'vue';
+  import { useUserStore } from '@/store/modules/user';
 
   const props = defineProps({
     accordion: {
@@ -26,6 +27,35 @@
   });
 
   const router = useRouter();
+  const userStore = useUserStore();
+
+  const filterTreeData = (treeData, permissions) => {
+    const permissionSet = new Set(permissions);
+
+    return treeData.reduce((acc, item) => {
+      const hasPermission = item.meta.permission
+        ? permissionSet.has(item.meta.permission)
+        : false;
+
+      // 处理子节点
+      const children = item.children
+        ? filterTreeData(item.children, permissions)
+        : [];
+
+      if (hasPermission || children.length > 0) {
+        acc.push({
+          ...item,
+          children,
+        });
+      }
+
+      return acc;
+    }, []);
+  };
+
+  const computedMenus = computed(() => {
+    return filterTreeData(menus, userStore.permissions);
+  });
 
   const activeMenu = ref('');
   const openMenu = ref(new Set());

@@ -27,10 +27,10 @@ Mock.mock('/api/user', 'get', () => {
       role: 'admin',
       permissions: [
         'dashboard',
-        'mutiple-level21-level31',
-        'mutiple-level22',
         'system-user',
         'system-role',
+        'mutiple-level22',
+        'mutiple-level21-level31',
       ],
     },
   };
