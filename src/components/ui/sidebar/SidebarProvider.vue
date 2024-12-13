@@ -12,23 +12,20 @@
     SIDEBAR_WIDTH_ICON,
   } from './utils';
 
-  const props = withDefaults(
-    defineProps({
-      defaultOpen: {
-        type: Boolean,
-        default: true,
-      },
-      open: {
-        type: Boolean,
-        default: undefined,
-      },
-      class: {
-        type: null,
-        default: null,
-      },
-    }),
-    {},
-  );
+  const props = defineProps({
+    defaultOpen: {
+      type: Boolean,
+      default: true,
+    },
+    open: {
+      type: Boolean,
+      default: undefined,
+    },
+    class: {
+      type: null,
+      default: null,
+    },
+  });
 
   const emits = defineEmits(['update:open']);
 

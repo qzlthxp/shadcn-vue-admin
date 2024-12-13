@@ -1,5 +1,5 @@
 <template>
-  <RouterView></RouterView>
+  <div> level22 </div>
 </template>
 
 <script setup></script>
