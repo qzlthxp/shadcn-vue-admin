@@ -17,7 +17,6 @@
   import { useRouter } from 'vue-router';
   import { ref, watch, provide, computed } from 'vue';
   import { useUserStore } from '@/store/modules/user';
-  import { useTagStore } from '@/store/modules/tag';
 
   const props = defineProps({
     accordion: {
@@ -28,7 +27,6 @@
 
   const router = useRouter();
   const userStore = useUserStore();
-  const tagStore = useTagStore();
 
   const filterTreeData = (treeData, permissions) => {
     const permissionSet = new Set(permissions);
@@ -105,7 +103,6 @@
     (newVal) => {
       updateActiveMenu(newVal);
       updateOpenMenu(newVal, true);
-      tagStore.addTag(newVal);
     },
     {
       immediate: true,

@@ -4,6 +4,7 @@ import { createUserGuard } from './guard/user';
 import { createTitleGuard } from './guard/title';
 import { createPermissionGuard } from './guard/permission';
 import { createProgressGuard } from './guard/nprogress';
+import { createTagGuard } from './guard/tag';
 import { menus as menuChildren } from './routes';
 
 const routes = [
@@ -35,6 +36,7 @@ export default {
     createProgressGuard(router);
     createUserGuard(router);
     createPermissionGuard(router);
+    createTagGuard(router);
     createTitleGuard(router);
   },
 };

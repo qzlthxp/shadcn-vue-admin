@@ -19,7 +19,7 @@
           />
         </ScrollArea>
         <div
-          class="absolute top-0 bottom-0 right-0 w-6 bg-gradient-to-r from-white/10 to-white"
+          class="absolute top-0 bottom-0 right-0 w-6 bg-gradient-to-r from-background/10 to-background"
         ></div>
       </header>
       <div class="h-[calc(100vh_-_3rem)] overflow-auto">

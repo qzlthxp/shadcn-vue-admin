@@ -21,7 +21,7 @@
     >
       <SidebarMenuItem>
         <CollapsibleTrigger as-child>
-          <SidebarMenuButton>
+          <SidebarMenuButton :is-active="activeMenu.indexOf(item.name) > -1">
             <component :is="item.meta.icon || AlignJustify" />
             <span>{{ item.meta.title }}</span>
             <ChevronRight
