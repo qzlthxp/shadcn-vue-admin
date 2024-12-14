@@ -27,22 +27,23 @@
           :side-offset="4"
         >
           <DropdownMenuLabel class="p-0 font-normal">
-            <div class="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
+            <SidebarMenuButton
+              size="lg"
+              @click="$router.push({ name: 'profile' })"
+            >
               <Avatar class="h-8 w-8 rounded-lg">
                 <AvatarImage :src="userStore.avatar" :alt="userStore.name" />
                 <AvatarFallback class="rounded-lg">
                   {{ avatarFallback }}
                 </AvatarFallback>
               </Avatar>
-              <div class="grid flex-1 text-left text-sm leading-tight">
-                <span class="truncate font-semibold">{{ userStore.name }}</span>
-                <span class="truncate text-xs">{{ userStore.email }}</span>
-              </div>
-            </div>
+              <p> 个人中心 </p>
+              <ChevronRight class="ml-auto size-4" />
+            </SidebarMenuButton>
           </DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuGroup>
-            <DropdownMenuItem>
+            <DropdownMenuItem @click="$router.push({ name: 'settings' })">
               <Settings />
               设置
             </DropdownMenuItem>
@@ -74,7 +75,12 @@
     DropdownMenuSeparator,
     DropdownMenuTrigger,
   } from '@/components/ui/dropdown-menu';
-  import { ChevronsUpDown, LogOut, Settings } from 'lucide-vue-next';
+  import {
+    ChevronsUpDown,
+    LogOut,
+    Settings,
+    ChevronRight,
+  } from 'lucide-vue-next';
   import { computed } from 'vue';
   import { useRouter } from 'vue-router';
   import { useUserStore } from '@/store/modules/user';

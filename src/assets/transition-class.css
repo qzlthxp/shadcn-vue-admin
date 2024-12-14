@@ -1,0 +1,9 @@
+.baselayout-fade-enter-active,
+.baselayout-fade-leave-active {
+  transition: opacity 0.15s ease;
+}
+
+.baselayout-fade-enter-from,
+.baselayout-fade-leave-to {
+  opacity: 0;
+}

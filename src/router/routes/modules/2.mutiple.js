@@ -1,27 +1,27 @@
 export default [
   {
     path: 'mutiple',
+    name: 'mutiple',
     redirect: '/mutiple/level21/level31',
     meta: {
       title: '一级菜单',
-      key: 'mutiple',
     },
     children: [
       {
         path: 'level21',
+        name: 'mutipleLevel21',
         meta: {
           title: '二级菜单1',
-          key: 'mutiple-level21',
-          openMenuKeys: ['mutiple'],
+          openMenuNames: ['mutiple'],
         },
         children: [
           {
             path: 'level31',
-            component: () => import('@/views/mutiple/level31/index.vue'),
+            name: 'mutipleLevel21Level31',
+            component: () => import('@/views/mutiple/level31/Index.vue'),
             meta: {
               title: '三级菜单',
-              key: 'mutiple-level21-level31',
-              openMenuKeys: ['mutiple', 'mutiple-level21'],
+              openMenuNames: ['mutiple', 'mutipleLevel21'],
               permission: 'mutiple-level21-level31',
             },
           },
@@ -29,11 +29,11 @@ export default [
       },
       {
         path: 'level22',
-        component: () => import('@/views/mutiple/level22/index.vue'),
+        name: 'mutipleLevel22',
+        component: () => import('@/views/mutiple/level22/Index.vue'),
         meta: {
           title: '二级菜单2',
-          key: 'mutiple-level22',
-          openMenuKeys: ['mutiple'],
+          openMenuNames: ['mutiple'],
           permission: 'mutiple-level22',
         },
       },

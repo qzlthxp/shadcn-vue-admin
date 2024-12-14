@@ -17,6 +17,7 @@
     "clsx": "^2.1.1",
     "lucide-vue-next": "^0.468.0",
     "mockjs": "^1.1.0",
+    "nprogress": "^0.2.0",
     "pinia": "^2.3.0",
     "radix-vue": "^1.9.11",
     "tailwind-merge": "^2.5.5",

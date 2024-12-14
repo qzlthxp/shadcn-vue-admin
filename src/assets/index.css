@@ -94,3 +94,7 @@
     @apply bg-background text-foreground;
   }
 }
+
+#nprogress .bar {
+  background-color: hsl(var(--primary));
+}

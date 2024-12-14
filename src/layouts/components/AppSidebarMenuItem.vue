@@ -2,7 +2,7 @@
   <template v-if="!item.children?.length">
     <SidebarMenuItem>
       <SidebarMenuButton
-        :is-active="activeMenu === item.meta.key"
+        :is-active="activeMenu === item.name"
         class="data-[active=true]:bg-transparent"
         @click="updateRouter(item)"
       >
@@ -15,9 +15,9 @@
   <template v-else>
     <Collapsible
       as-child
-      :open="openMenu.has(item.meta.key)"
+      :open="openMenu.has(item.name)"
       class="group/collapsible"
-      @update:open="updateOpenMenu(item, !openMenu.has(item.meta.key))"
+      @update:open="updateOpenMenu(item, !openMenu.has(item.name))"
     >
       <SidebarMenuItem>
         <CollapsibleTrigger as-child>
@@ -26,7 +26,7 @@
             <span>{{ item.meta.title }}</span>
             <ChevronRight
               class="ml-auto transition-transform duration-200"
-              :class="[openMenu.has(item.meta.key) ? 'rotate-90' : '']"
+              :class="[openMenu.has(item.name) ? 'rotate-90' : '']"
             />
           </SidebarMenuButton>
         </CollapsibleTrigger>
@@ -36,7 +36,6 @@
               v-for="(subItem, subIndex) in item.children"
               :key="subIndex"
               :item="subItem"
-              :path="[...path, subItem.path]"
             ></AppSidebarMenuItem>
           </SidebarMenuSub>
         </CollapsibleContent>
@@ -60,14 +59,10 @@
   import { inject } from 'vue';
   import { useRouter } from 'vue-router';
 
-  const props = defineProps({
+  defineProps({
     item: {
       type: Object,
       default: () => ({}),
-    },
-    path: {
-      type: Array,
-      default: () => [],
     },
   });
 
@@ -80,7 +75,7 @@
     updateActiveMenu(menu);
     updateOpenMenu(menu);
     router.push({
-      path: `/${props.path.join('/')}`,
+      name: menu.name,
     });
   };
 </script>

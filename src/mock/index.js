@@ -31,6 +31,8 @@ Mock.mock('/api/user', 'get', () => {
         'system-role',
         'mutiple-level22',
         'mutiple-level21-level31',
+        'settings',
+        'profile',
       ],
     },
   };
