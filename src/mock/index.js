@@ -20,10 +20,10 @@ Mock.mock('/api/user', 'get', () => {
     code: 200,
     message: '成功',
     data: {
-      name: '林俊杰',
+      name: 'qzlthxp',
       email: '985234173@qq.com',
       avatar:
-        'https://is1-ssl.mzstatic.com/image/thumb/Features126/v4/b9/64/5a/b9645a4b-b66b-a62c-5998-5c99c5bd6e9b/mzl.obbxkbai.jpg/2400x933vf-60.jpg',
+        'https://store-images.s-microsoft.com/image/apps.51166.13718773309227929.a9ed3a56-4096-4b23-aca9-a9d49ff8b774.adc5fd92-9951-410f-84cb-9d9aacfe86cc',
       role: 'admin',
       permissions: [
         'dashboard',

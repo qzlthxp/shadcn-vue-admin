@@ -7,12 +7,7 @@
             size="lg"
             class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
           >
-            <Avatar class="h-8 w-8 rounded-lg">
-              <AvatarImage :src="userStore.avatar" :alt="userStore.name" />
-              <AvatarFallback class="rounded-lg">
-                {{ avatarFallback }}
-              </AvatarFallback>
-            </Avatar>
+            <UserAvatar class="h-8 w-8 rounded-lg" />
             <div class="grid flex-1 text-left text-sm leading-tight">
               <span class="truncate font-semibold">{{ userStore.name }}</span>
               <span class="truncate text-xs">{{ userStore.email }}</span>
@@ -31,12 +26,7 @@
               size="lg"
               @click="$router.push({ name: 'profile' })"
             >
-              <Avatar class="h-8 w-8 rounded-lg">
-                <AvatarImage :src="userStore.avatar" :alt="userStore.name" />
-                <AvatarFallback class="rounded-lg">
-                  {{ avatarFallback }}
-                </AvatarFallback>
-              </Avatar>
+              <UserAvatar class="h-8 w-8 rounded-lg" />
               <p> 个人中心 </p>
               <ChevronRight class="ml-auto size-4" />
             </SidebarMenuButton>
@@ -60,7 +50,6 @@
 </template>
 
 <script setup>
-  import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
   import {
     SidebarMenu,
     SidebarMenuItem,
@@ -81,14 +70,12 @@
     Settings,
     ChevronRight,
   } from 'lucide-vue-next';
-  import { computed } from 'vue';
+  import UserAvatar from '@/components/user-avatar/Index.vue';
   import { useRouter } from 'vue-router';
   import { useUserStore } from '@/store/modules/user';
 
   const userStore = useUserStore();
   const router = useRouter();
-
-  const avatarFallback = computed(() => userStore.name.slice(-2).toUpperCase());
 
   const handleLogout = () => {
     userStore.logout();

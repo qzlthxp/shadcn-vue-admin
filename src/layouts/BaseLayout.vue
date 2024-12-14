@@ -25,7 +25,9 @@
       <div class="h-[calc(100vh_-_3rem)] overflow-auto">
         <RouterView v-slot="{ Component }">
           <Transition name="baselayout-fade" mode="out-in">
-            <component :is="Component" />
+            <KeepAlive>
+              <component :is="Component" />
+            </KeepAlive>
           </Transition>
         </RouterView>
       </div>
