@@ -7,12 +7,12 @@
         <component
           v-if="tag.meta.icon"
           :is="tag.meta.icon"
-          :class="['h-4 w-4', isActive ? '' : 'text-slate-400']"
+          :class="['h-4 w-4', isActive ? '' : 'text-muted-foreground']"
         />
         <span
           :class="[
             'text-xs',
-            isActive ? 'font-bold text-primary' : ' text-slate-400',
+            isActive ? 'font-bold text-primary' : 'text-muted-foreground',
           ]"
         >
           {{ tag.meta.title }}
@@ -20,8 +20,7 @@
         <div
           v-if="!tag.meta.fixed"
           :class="[
-            'rounded hover:bg-destructive/10 hover:text-destructive',
-            isActive ? '' : 'text-secondary',
+            'rounded text-muted-foreground hover:bg-destructive/10 hover:text-destructive',
           ]"
         >
           <X class="h-4 w-4" @click.stop="$emit('remove')" />
