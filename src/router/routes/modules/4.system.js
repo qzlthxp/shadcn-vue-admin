@@ -27,7 +27,9 @@ export default [
             component: () => import('@/views/system/user/components/Add.vue'),
             meta: {
               title: '添加系统用户',
+              hideInMenu: true,
               openMenuNames: ['system'],
+              permission: 'system-user-add',
             },
           },
         ],

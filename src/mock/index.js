@@ -1,13 +1,13 @@
 import Mock from 'mockjs';
 
-let loginInfo = {};
+const key = 'LOGIN_INFO';
 
 Mock.setup({
   timeout: '200-1000',
 });
 
 Mock.mock('/api/login', 'post', (data) => {
-  loginInfo = JSON.parse(data.body);
+  localStorage.setItem(key, data.body);
 
   // 模拟登录成功
   return {
@@ -24,17 +24,21 @@ const rolePermission = {
     'dashboard',
     'mutiple-level22',
     'mutiple-level21-level31',
+    'article-column-v3-together',
+    'open-source-uni-app-tree-select',
     'settings',
     'profile',
   ],
   admin: [
     'dashboard',
-    'system-user',
-    'system-role',
     'mutiple-level22',
     'mutiple-level21-level31',
+    'article-column-v3-together',
+    'open-source-uni-app-tree-select',
     'settings',
     'profile',
+    'system-user',
+    'system-role',
   ],
 };
 
@@ -45,15 +49,28 @@ const avatar = {
 };
 
 Mock.mock('/api/user', 'get', () => {
+  const loginInfo = localStorage.getItem(key);
+  if (!loginInfo) {
+    return {
+      code: 200,
+      message: '成功',
+      data: {
+        code: 401,
+      },
+    };
+  }
+
+  const { username = 'user' } = JSON.parse(loginInfo);
+
   return {
     code: 200,
     message: '成功',
     data: {
       name: 'qzlthxp',
       email: '985234173@qq.com',
-      avatar: avatar[loginInfo.username || 'user'],
-      role: loginInfo.username || 'user',
-      permissions: rolePermission[loginInfo.username || 'user'],
+      avatar: avatar[username],
+      role: username,
+      permissions: rolePermission[username],
     },
   };
 });
