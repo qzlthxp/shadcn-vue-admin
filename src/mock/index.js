@@ -4,7 +4,9 @@ Mock.setup({
   timeout: '200-1000',
 });
 
-Mock.mock('/api/login', 'post', () => {
+Mock.mock('/api/login', 'post', (data) => {
+  console.log(data);
+
   // 模拟登录成功
   return {
     code: 200,

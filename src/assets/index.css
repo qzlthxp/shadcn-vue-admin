@@ -97,5 +97,4 @@
 
 #nprogress .bar {
   background-color: hsl(var(--primary));
-  z-index: 999999;
 }

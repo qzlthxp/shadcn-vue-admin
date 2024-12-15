@@ -40,18 +40,18 @@ export const useTagStore = defineStore('tag', {
       });
       return needRedirect;
     },
-    // clearTag(tag) {
-    //   this.tags = this.tags.filter((item) => {
-    //     if (item.meta.fixed) return true;
-    //     if (tag && item.name === tag.name) return true;
-    //     return false;
-    //   });
-    //   this.cacheTag = tag.name
-    //     ? new Set([Dashboard[0].name, tag.name])
-    //     : new Set([Dashboard[0].name]);
-    //   return tag.name
-    //     ? this.currentTagName === tag.name
-    //     : this.currentTagName === Dashboard[0].name;
-    // },
+    clearTag(tag) {
+      this.tags = this.tags.filter((item) => {
+        if (item.meta.fixed) return true;
+        if (tag && item.name === tag.name) return true;
+        return false;
+      });
+      this.cacheTag = tag.name
+        ? new Set([Dashboard[0].name, tag.name])
+        : new Set([Dashboard[0].name]);
+      return tag.name
+        ? this.currentTagName === tag.name
+        : this.currentTagName === Dashboard[0].name;
+    },
   },
 });
