@@ -1,7 +1,7 @@
 import { request } from '@/request';
 
-export function login() {
-  return request.post('/login');
+export function login(data) {
+  return request.post('/login', data);
 }
 
 export function getUserInfo() {

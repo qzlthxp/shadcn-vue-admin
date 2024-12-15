@@ -8,7 +8,7 @@
         <SidebarTrigger />
         <Separator orientation="vertical" class="h-4" />
         <ScrollArea class="group flex-1 whitespace-nowrap">
-          <div class="flex items-center h-10 space-x-2">
+          <div class="flex items-center h-full space-x-2">
             <TagBar />
             <div class="w-6 h-full"></div>
           </div>
