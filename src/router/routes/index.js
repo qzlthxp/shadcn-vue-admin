@@ -13,4 +13,6 @@ function formatModules(_modules) {
   return result;
 }
 
+console.log(formatModules(modules));
+
 export const menus = formatModules(modules);
