@@ -44,7 +44,7 @@ export default [
       'default-case-last': 'error',
       'default-param-last': 'error',
       'eqeqeq': 'error',
-      'no-unused-vars': ['error', { ignoreRestSiblings: true }],
+      'no-unused-vars': 'warn',
       //import
       'import/no-unresolved': 'error',
       // vue
