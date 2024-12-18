@@ -67,7 +67,7 @@ Mock.mock('/api/user', 'get', () => {
     message: '成功',
     data: {
       name: 'qzlthxp',
-      email: '985234173@qq.com',
+      email: 'xxxxxxxxx@qq.com',
       avatar: avatar[username],
       role: username,
       permissions: rolePermission[username],

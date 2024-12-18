@@ -1,4 +1,4 @@
-import { createWebHashHistory, createRouter } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import BaseLayout from '@/layouts/BaseLayout.vue';
 import { createUserGuard } from './guard/user';
 import { createTitleGuard } from './guard/title';
@@ -28,7 +28,7 @@ const routes = [
 export default {
   install(Vue) {
     const router = createRouter({
-      history: createWebHashHistory(),
+      history: createWebHistory(),
       routes,
     });
     Vue.use(router);
