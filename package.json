@@ -9,7 +9,6 @@
     "preview": "vite preview",
     "lint": "npx eslint .",
     "fix": "npx eslint --fix",
-    "lint-staged": "npx lint-staged",
     "prepare": "husky"
   },
   "lint-staged": {
