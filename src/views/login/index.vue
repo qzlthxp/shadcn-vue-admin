@@ -5,7 +5,7 @@
     >
       <img
         class="mx-auto my-10 w-10 h-10 rounded-lg object-contain"
-        src="/public/favicon.png"
+        src="/favicon.png"
         alt="logo"
       />
       <form @submit="onSubmit">
