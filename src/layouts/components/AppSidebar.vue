@@ -46,4 +46,6 @@
   } from '@/components/ui/sidebar';
   import AppSidebarUser from './AppSidebarUser.vue';
   import AppSidebarMenu from './AppSidebarMenu.vue';
+
+  console.log(1);
 </script>
